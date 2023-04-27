@@ -1,0 +1,25 @@
+# `docker-compose up -d mongodb` OR `docker-compose up -d`
+
+version: '3.8'
+services:
+  mongodb:
+    image: mongo:4.4
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PASSWORD}
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./persistedOnHost:/data/db #/data/db is mongodb's default location for data
+      - ./docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+#      KMG_MONGODB_DATABASE: ${MONGODB_DATABASE}
+      KMG_MONGODB_HOST: mongodb
+      KMG_MONGODB_PORT: "27017"
+      KMG_MONGODB_USERNAME: ${MONGODB_USERNAME}
+      KMG_MONGODB_PASSWORD: ${MONGODB_PASSWORD}
