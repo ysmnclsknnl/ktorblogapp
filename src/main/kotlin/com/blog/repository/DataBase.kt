@@ -11,4 +11,3 @@ fun initializeDataBase() {
     val database = client.getDatabase("yourBlog")
     val col = database.getCollection<Article>()
 }
-
