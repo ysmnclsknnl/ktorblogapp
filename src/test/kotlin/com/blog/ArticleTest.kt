@@ -2,7 +2,6 @@ package com.blog
 
 import com.blog.data.model.CreateRequest
 import io.kotest.core.spec.style.StringSpec
-import io.kotest.core.spec.style.Test
 import io.kotest.matchers.shouldBe
 import io.ktor.client.*
 import io.ktor.client.plugins.contentnegotiation.*

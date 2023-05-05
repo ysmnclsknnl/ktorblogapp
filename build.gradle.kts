@@ -34,6 +34,7 @@ dependencies {
     implementation("org.litote.kmongo:kmongo-coroutine:$kmongo_version")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2")
     testImplementation("io.ktor:ktor-server-test-host:$ktor_version")
+    testImplementation("io.kotest.extensions:kotest-assertions-ktor:2.0.0")
     testImplementation("org.jetbrains.kotlin:kotlin-test:$kotlin_version")
     testImplementation("io.kotest:kotest-runner-junit5:$kotest_version")
     testImplementation("io.kotest:kotest-assertions-core:$kotest_version")
