@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger
 
 @Serializable
 data class Article(
-    val id: Int,
+    var id: String? = null,
     val title: String,
     val body: String,
     val created: OffsetDateTime,
