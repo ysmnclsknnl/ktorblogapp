@@ -1,7 +1,6 @@
 package com.blog
 
 import com.blog.plugins.*
-import com.blog.repository.initializeDataBase
 import io.ktor.server.application.*
 
 fun main(args: Array<String>): Unit =
@@ -11,5 +10,4 @@ fun main(args: Array<String>): Unit =
 fun Application.module() {
     configureSerialization()
     configureRouting()
-    initializeDataBase()
 }

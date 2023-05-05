@@ -1,33 +1,20 @@
 @file:UseSerializers(OffsetDateTimeSerializer::class)
 
-package com.blog.models
+package com.blog.data.model
 
 import com.blog.core.OffsetDateTimeSerializer
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.UseSerializers
-import java.time.OffsetDateTime
-import java.util.concurrent.atomic.AtomicInteger
+import org.bson.codecs.pojo.annotations.BsonId
+import org.bson.types.ObjectId
 
 @Serializable
 data class Article(
-    var id: String? = null,
+    @BsonId
+    var id: String = ObjectId().toString(),
     val title: String,
     val body: String,
-    val created: OffsetDateTime,
-    val updated: OffsetDateTime? = null
-) {
-    companion object {
-        private val idCounter = AtomicInteger()
-
-        fun newEntry(title: String, body: String, created: OffsetDateTime, updated: OffsetDateTime? = null) =
-            Article(idCounter.getAndIncrement(), title, body, created, updated)
-    }
-}
-
-val articles = mutableListOf(
-    Article.newEntry(
-        "The drive to develop!",
-        "...it's what keeps me going.",
-        OffsetDateTime.now()
-    )
+    val publish: Boolean = false,
+    val category:List<String> = emptyList(),
 )
+

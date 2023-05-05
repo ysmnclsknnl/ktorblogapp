@@ -1,4 +1,4 @@
-package com.blog
+package com.blog.data
 
 import com.blog.data.model.Article
 import com.mongodb.ConnectionString
